@@ -32,7 +32,7 @@ function renderComments(book) {
         let latestComment = book.comments[j];
         commentTemplate += `
       <article class="commentary">
-       <strong> ${latestComment.name}:</strong><br> <br>
+       <strong> ${latestComment.name}:</strong><br> 
         ${latestComment.comment} 
       </article>
     `;
