@@ -28,7 +28,8 @@ function renderBook(book, i, heartIcon) {
 
 function inputField(i) {
     return `
-    <input type="text" id="commentInput-${i}" placeholder="Dein Kommentar">
-    <button onclick="addComment(${i})">Kommentar abschicken</button>
-  `;
+        <input type="text" id="commentInput-${i}" placeholder="Dein Kommentar">
+        <div id="error-${i}" class="error-message"></div>
+        <button onclick="addComment(${i})">Kommentar abschicken</button>
+    `;
 }

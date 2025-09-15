@@ -57,12 +57,16 @@ function renderComments(book) {
 
 function addComment(i) {
     let name = "Daniel";
-    let comment = document.getElementById(`commentInput-${i}`).value.trim();
+    let input = document.getElementById(`commentInput-${i}`);
+    let comment = input.value.trim();
+    let errorContainer = document.getElementById(`error-${i}`);
 
     if (comment) {
         books[i].comments.push({ name, comment });
         renderBooks(); // Seite neu aufbauen
     } else {
-        alert("Bitte Kommentar eingeben.");
+        if (errorContainer) {
+            errorContainer.textContent = "Bitte Kommentar eingeben.";
+        }
     }
 }
