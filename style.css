@@ -29,16 +29,18 @@ h2{
 
 .book {
   width: 100%;
-  max-width: 350px; 
-  height: auto;
+  max-width: 350px;  
   border: 1px solid #ccc;
   padding: 10px;
   box-sizing: border-box;
   background-color: #6e63d6;
   border-radius: 8px;
+  text-align: center;
+  
   display: flex;
   flex-direction: column;
-  text-align: center;
+  justify-content: flex-start;
+  overflow: hidden;
 }
 
 
@@ -104,6 +106,25 @@ button:hover {
 
 
 
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 10px;
+}
+
+.comment-wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 144px;
+  padding-right: 4px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+
+
+
 
 
 
@@ -123,29 +144,6 @@ button:hover {
   }
 }
 
-.book {
-  height: 700px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow: hidden;
-}
-
-.comment-section {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  margin-top: 10px;
-}
-
-.comment-wrapper {
-  flex-grow: 1;
-  overflow-y: auto;
-  max-height: 144px;
-  padding-right: 4px;
-  margin-bottom: 8px;
-  text-align: left;
-}
 
 
 
