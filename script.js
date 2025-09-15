@@ -1,16 +1,26 @@
 function renderBooks() {
     const bookTitle = document.getElementById("bookTitle");
-    let bookTitleRef = ""; //  variable wird geleert. wird genutzt, um die Daten für alle Bücher zu sammeln.
+    let bookTitleRef = "";
 
-    for (let i = 0; i < books.length; i++) {  /* Eine Schleife, die durch alle Bücher im books-Array geht.   books.length ist die Anzahl der Bücher.*/
-        bookTitleRef += renderBook(books[i], i);
+    for (let i = 0; i < books.length; i++) {
+        let heartIcon;
+
+        // Wichtig: hier korrekt auf books[i] zugreifen
+        if (books[i].liked === true) {
+            heartIcon = "./img/heart-icon.png";
+        } else {
+            heartIcon = "./img/heart-thin-icon.png";
+        }
+
+        // Herzsymbol mit übergeben!
+        bookTitleRef += renderBook(books[i], i, heartIcon);
     }
 
     bookTitle.innerHTML = bookTitleRef;
 }
 
+
 function toggleHeart(i) {
-    // Liked-Status umkehren (true → false oder false → true)
     if (books[i].liked === true) {
         books[i].liked = false;
         books[i].likes -= 1;
@@ -19,20 +29,23 @@ function toggleHeart(i) {
         books[i].likes += 1;
     }
 
+    renderBooks(); // Neu rendern
+}
+
     // Seite neu rendern, um das neue Herz-Icon & Like-Zahl anzuzeigen
-    renderBooks()}
+    renderBooks()
 
 
 
 
 function renderComments(book) {
-    let commentTemplate = ""; // variable wird geleert. wird genutzt, um die Daten für alle kommentare zu sammeln.
+    let commentTemplate = "";
 
     for (let j = 0; j < book.comments.length; j++) {
         let latestComment = book.comments[j];
         commentTemplate += `
       <article class="commentary">
-       <strong> ${latestComment.name}:</strong><br> 
+       <strong>${latestComment.name}:</strong><br> 
         ${latestComment.comment} 
       </article>
     `;
@@ -41,13 +54,6 @@ function renderComments(book) {
     return commentTemplate;
 }
 
-
-function inputField(i) {
-    return `
-    <input type="text" id="commentInput-${i}" placeholder="Dein Kommentar">
-    <button onclick="addComment(${i})">Kommentar abschicken</button>
-  `;
-}
 
 function addComment(i) {
     let name = "Daniel";

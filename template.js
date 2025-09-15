@@ -1,12 +1,4 @@
-function renderBook(book, i) {
-    let heartIcon;
-
-    if (book.liked === true) { // wenn geliked ist das ausgefülltes Herz
-        heartIcon = "./img/heart-icon.png";
-    } else {
-        heartIcon = "./img/heart-thin-icon.png"; // sonst leeres herz 
-    }
-
+function renderBook(book, i, heartIcon) {
     let bookTemplate = `
     <div class="book">
       <h2>${book.name}</h2>
@@ -22,10 +14,21 @@ function renderBook(book, i) {
         </span>
       </div> 
       <div class="details">Author: ${book.author}</div>
-      <div class="commentary">Kommentare:</div>
-      ${renderComments(book)}
-      ${inputField(i)}
-    </div>`;
 
+      <div class="comment-section">
+        <div class="commentary">Kommentare:</div>
+        <div class="comment-wrapper">
+          ${renderComments(book)}
+        </div>
+        ${inputField(i)}
+      </div>
+    </div>`;
     return bookTemplate;
+}
+
+function inputField(i) {
+    return `
+    <input type="text" id="commentInput-${i}" placeholder="Dein Kommentar">
+    <button onclick="addComment(${i})">Kommentar abschicken</button>
+  `;
 }

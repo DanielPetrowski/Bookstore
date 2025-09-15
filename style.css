@@ -102,6 +102,12 @@ button:hover {
 }
 
 
+
+
+
+
+
+
 @media (max-width: 400px) {
   .details {
     flex-direction: column;
@@ -116,3 +122,30 @@ button:hover {
     font-size: 13px;
   }
 }
+
+.book {
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 10px;
+}
+
+.comment-wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 144px;
+  padding-right: 4px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+
+
